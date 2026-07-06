@@ -8,7 +8,7 @@ const installedCount = allData.length - data.length;
 
 const today = new Date().toISOString().slice(0, 10);
 
-const html = `<h2 class="sr-only">AI tools tracker: a filterable table of trending MCP servers, plugins, skills, and connectors, with install buttons.</h2>
+const html = `<h2 class="sr-only">AI tools tracker: a filterable, paginated table of trending MCP servers, plugins, skills, and connectors, sorted by stars, with install buttons.</h2>
 <div style="display:flex; gap:8px; align-items:center; margin-bottom:12px; flex-wrap:wrap;">
   <input id="q" type="text" placeholder="Search name or description" style="flex:1; min-width:180px;" />
   <select id="typeFilter" style="width:130px;">
@@ -42,10 +42,17 @@ const html = `<h2 class="sr-only">AI tools tracker: a filterable table of trendi
   <tbody id="rows"></tbody>
 </table>
 </div>
+<div style="display:flex; align-items:center; gap:12px; margin-top:12px; justify-content:center;">
+  <button id="prevPage" style="padding:4px 10px;">Prev</button>
+  <span id="pageInfo" style="font-size:12px; color:var(--text-secondary);"></span>
+  <button id="nextPage" style="padding:4px 10px;">Next</button>
+</div>
 <script>
 const DATA = ${JSON.stringify(data)};
 const TODAY = ${JSON.stringify(today)};
 const INSTALLED_COUNT = ${installedCount};
+const PAGE_SIZE = 8;
+let currentPage = 1;
 
 function esc(s) {
   return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -69,68 +76,63 @@ function render() {
     if (api && d.needsApi !== api) return false;
     if (q && !(d.name.toLowerCase().includes(q) || d.description.toLowerCase().includes(q))) return false;
     return true;
-  });
+  }).slice().sort((a, b) => b.stars - a.stars);
 
-  const groups = new Map();
-  for (const d of filtered) {
-    const key = d.dateAdded + '|' + (d.source || '');
-    if (!groups.has(key)) groups.set(key, []);
-    groups.get(key).push(d);
-  }
-  const keys = Array.from(groups.keys()).sort().reverse();
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  currentPage = Math.min(Math.max(1, currentPage), totalPages);
+  const start = (currentPage - 1) * PAGE_SIZE;
+  const pageItems = filtered.slice(start, start + PAGE_SIZE);
 
   const rowsEl = document.getElementById('rows');
   rowsEl.innerHTML = '';
 
-  for (const key of keys) {
-    const [dateAdded, source] = key.split('|');
-    const groupRow = document.createElement('tr');
-    groupRow.innerHTML = '<td colspan="8" style="padding:10px 8px 4px; font-size:12px; color:var(--text-muted);">Added ' + esc(dateAdded) + (source ? ' (' + esc(source) + ')' : '') + '</td>';
-    rowsEl.appendChild(groupRow);
+  for (const d of pageItems) {
+    const tr = document.createElement('tr');
+    tr.style.borderBottom = '0.5px solid var(--border)';
+    tr.innerHTML =
+      '<td style="padding:8px; font-weight:500; vertical-align:top;">' + esc(d.name) + '</td>' +
+      '<td style="padding:8px; color:var(--text-secondary); vertical-align:top;">' + esc(d.description) + '</td>' +
+      '<td style="padding:8px; color:var(--text-secondary); vertical-align:top;">' + esc(d.howToUse) + '</td>' +
+      '<td style="padding:8px; vertical-align:top;"><span style="color:' + apiColor(d.needsApi) + '; font-weight:500;">' + esc(d.needsApi) + '</span><br/><span style="font-size:11px; color:var(--text-muted);">' + esc(d.apiNote || '') + '</span></td>' +
+      '<td style="padding:8px; vertical-align:top;">' + esc(d.nature) + '</td>' +
+      '<td style="padding:8px; vertical-align:top;">' + fmtStars(d.stars) + ' <i class="ti ti-star" style="font-size:12px;" aria-hidden="true"></i></td>';
 
-    for (const d of groups.get(key)) {
-      const tr = document.createElement('tr');
-      tr.style.borderBottom = '0.5px solid var(--border)';
-      tr.innerHTML =
-        '<td style="padding:8px; font-weight:500; vertical-align:top;">' + esc(d.name) + '</td>' +
-        '<td style="padding:8px; color:var(--text-secondary); vertical-align:top;">' + esc(d.description) + '</td>' +
-        '<td style="padding:8px; color:var(--text-secondary); vertical-align:top;">' + esc(d.howToUse) + '</td>' +
-        '<td style="padding:8px; vertical-align:top;"><span style="color:' + apiColor(d.needsApi) + '; font-weight:500;">' + esc(d.needsApi) + '</span><br/><span style="font-size:11px; color:var(--text-muted);">' + esc(d.apiNote || '') + '</span></td>' +
-        '<td style="padding:8px; vertical-align:top;">' + esc(d.nature) + '</td>' +
-        '<td style="padding:8px; vertical-align:top;">' + fmtStars(d.stars) + ' <i class="ti ti-star" style="font-size:12px;" aria-hidden="true"></i></td>';
+    const linkTd = document.createElement('td');
+    linkTd.style.padding = '8px';
+    linkTd.style.textAlign = 'center';
+    linkTd.style.verticalAlign = 'top';
+    const linkBtn = document.createElement('button');
+    linkBtn.setAttribute('aria-label', 'Open link');
+    linkBtn.style.padding = '4px 8px';
+    linkBtn.innerHTML = '<i class="ti ti-external-link" style="font-size:16px;" aria-hidden="true"></i>';
+    linkBtn.addEventListener('click', () => openLink(d.link));
+    linkTd.appendChild(linkBtn);
+    tr.appendChild(linkTd);
 
-      const linkTd = document.createElement('td');
-      linkTd.style.padding = '8px';
-      linkTd.style.textAlign = 'center';
-      linkTd.style.verticalAlign = 'top';
-      const linkBtn = document.createElement('button');
-      linkBtn.setAttribute('aria-label', 'Open link');
-      linkBtn.style.padding = '4px 8px';
-      linkBtn.innerHTML = '<i class="ti ti-external-link" style="font-size:16px;" aria-hidden="true"></i>';
-      linkBtn.addEventListener('click', () => openLink(d.link));
-      linkTd.appendChild(linkBtn);
-      tr.appendChild(linkTd);
+    const installTd = document.createElement('td');
+    installTd.style.padding = '8px';
+    installTd.style.textAlign = 'center';
+    installTd.style.verticalAlign = 'top';
+    const installBtn = document.createElement('button');
+    installBtn.innerHTML = '<i class="ti ti-download" style="font-size:14px; margin-right:4px;" aria-hidden="true"></i>Install ↗';
+    installBtn.addEventListener('click', () => sendPrompt('Install ' + d.name + ' for me: ' + (d.installCommand || d.link)));
+    installTd.appendChild(installBtn);
+    tr.appendChild(installTd);
 
-      const installTd = document.createElement('td');
-      installTd.style.padding = '8px';
-      installTd.style.textAlign = 'center';
-      installTd.style.verticalAlign = 'top';
-      const installBtn = document.createElement('button');
-      installBtn.innerHTML = '<i class="ti ti-download" style="font-size:14px; margin-right:4px;" aria-hidden="true"></i>Install ↗';
-      installBtn.addEventListener('click', () => sendPrompt('Install ' + d.name + ' for me: ' + (d.installCommand || d.link)));
-      installTd.appendChild(installBtn);
-      tr.appendChild(installTd);
-
-      rowsEl.appendChild(tr);
-    }
+    rowsEl.appendChild(tr);
   }
 
-  document.getElementById('summary').textContent = filtered.length + ' of ' + DATA.length + ' not yet installed \\u00b7 ' + INSTALLED_COUNT + ' installed (hidden) \\u00b7 last run ' + TODAY;
+  document.getElementById('summary').textContent = filtered.length + ' of ' + DATA.length + ' not yet installed, sorted by stars \\u00b7 ' + INSTALLED_COUNT + ' installed (hidden) \\u00b7 last run ' + TODAY;
+  document.getElementById('pageInfo').textContent = 'Page ' + currentPage + ' of ' + totalPages;
+  document.getElementById('prevPage').disabled = currentPage <= 1;
+  document.getElementById('nextPage').disabled = currentPage >= totalPages;
 }
 
-document.getElementById('q').addEventListener('input', render);
-document.getElementById('typeFilter').addEventListener('change', render);
-document.getElementById('apiFilter').addEventListener('change', render);
+document.getElementById('q').addEventListener('input', () => { currentPage = 1; render(); });
+document.getElementById('typeFilter').addEventListener('change', () => { currentPage = 1; render(); });
+document.getElementById('apiFilter').addEventListener('change', () => { currentPage = 1; render(); });
+document.getElementById('prevPage').addEventListener('click', () => { currentPage -= 1; render(); });
+document.getElementById('nextPage').addEventListener('click', () => { currentPage += 1; render(); });
 render();
 </script>`;
 

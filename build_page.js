@@ -87,9 +87,10 @@ const html = `<!DOCTYPE html>
   }
   .name { font-weight: 500; }
   .desc, .howto { color: var(--text-secondary); min-width: 200px; }
-  .api-yes { color: var(--success); font-weight: 500; }
-  .api-no { color: var(--warning); font-weight: 500; }
+  .api-good { color: var(--success); font-weight: 500; }
+  .api-warn { color: var(--warning); font-weight: 500; }
   .note { font-size: 11px; color: var(--text-muted); display: block; margin-top: 2px; }
+  .added-note { font-size: 11px; color: var(--text-muted); display: block; margin-top: 2px; }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
   .icon-btn {
@@ -107,6 +108,9 @@ const html = `<!DOCTYPE html>
   }
   .icon-btn:hover { border-color: var(--text-muted); }
   .icon-btn:active { transform: scale(0.98); }
+  .icon-btn:disabled { opacity: 0.4; cursor: default; }
+  .pagination { display: flex; align-items: center; gap: 12px; margin-top: 12px; justify-content: center; }
+  .pagination span { font-size: 12px; color: var(--text-secondary); }
   .badge {
     display: inline-block;
     font-size: 11px;
@@ -158,7 +162,12 @@ const html = `<!DOCTYPE html>
       <tbody id="rows"></tbody>
     </table>
   </div>
-  <footer>Auto-updated daily by a scheduled agent run. Entries are appended, never removed.</footer>
+  <div class="pagination">
+    <button class="icon-btn" id="prevPage">Prev</button>
+    <span id="pageInfo"></span>
+    <button class="icon-btn" id="nextPage">Next</button>
+  </div>
+  <footer>Auto-updated daily by a scheduled agent run. Entries are appended, never removed. Sorted by stars, highest first.</footer>
 </div>
 
 <script>
@@ -180,6 +189,9 @@ function copyCmd(btn, cmd) {
   });
 }
 
+const PAGE_SIZE = 10;
+let currentPage = 1;
+
 function render() {
   const q = document.getElementById('q').value.trim().toLowerCase();
   const type = document.getElementById('typeFilter').value;
@@ -190,56 +202,50 @@ function render() {
     if (api && d.needsApi !== api) return false;
     if (q && !(d.name.toLowerCase().includes(q) || d.description.toLowerCase().includes(q))) return false;
     return true;
-  });
+  }).slice().sort((a, b) => b.stars - a.stars);
 
-  const groups = new Map();
-  for (const d of filtered) {
-    const key = d.dateAdded + '|' + (d.source || '');
-    if (!groups.has(key)) groups.set(key, []);
-    groups.get(key).push(d);
-  }
-  const keys = Array.from(groups.keys()).sort().reverse();
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  currentPage = Math.min(Math.max(1, currentPage), totalPages);
+  const start = (currentPage - 1) * PAGE_SIZE;
+  const pageItems = filtered.slice(start, start + PAGE_SIZE);
 
   const rowsEl = document.getElementById('rows');
   rowsEl.innerHTML = '';
 
-  for (const key of keys) {
-    const [dateAdded, source] = key.split('|');
-    const groupRow = document.createElement('tr');
-    groupRow.className = 'group-row';
-    groupRow.innerHTML = '<td colspan="8">Added ' + esc(dateAdded) + (source ? ' (' + esc(source) + ')' : '') + '</td>';
-    rowsEl.appendChild(groupRow);
+  for (const d of pageItems) {
+    const tr = document.createElement('tr');
+    const apiClass = d.needsApi === 'No API' ? 'api-good' : 'api-warn';
+    tr.innerHTML =
+      '<td class="name">' + esc(d.name) + (d.installed ? ' <span class="badge">installed</span>' : '') + '<span class="added-note">Added ' + esc(d.dateAdded) + '</span></td>' +
+      '<td class="desc">' + esc(d.description) + '</td>' +
+      '<td class="howto">' + esc(d.howToUse) + '</td>' +
+      '<td><span class="' + apiClass + '">' + esc(d.needsApi) + '</span><span class="note">' + esc(d.apiNote || '') + '</span></td>' +
+      '<td>' + esc(d.nature) + '</td>' +
+      '<td>' + fmtStars(d.stars) + '</td>' +
+      '<td><a href="' + esc(d.link) + '" target="_blank" rel="noopener">Open</a></td>';
 
-    for (const d of groups.get(key)) {
-      const tr = document.createElement('tr');
-      const apiClass = d.needsApi === 'No API' ? 'api-no' : 'api-yes';
-      tr.innerHTML =
-        '<td class="name">' + esc(d.name) + (d.installed ? ' <span class="badge">installed</span>' : '') + '</td>' +
-        '<td class="desc">' + esc(d.description) + '</td>' +
-        '<td class="howto">' + esc(d.howToUse) + '</td>' +
-        '<td><span class="' + apiClass + '">' + esc(d.needsApi) + '</span><span class="note">' + esc(d.apiNote || '') + '</span></td>' +
-        '<td>' + esc(d.nature) + '</td>' +
-        '<td>' + fmtStars(d.stars) + '</td>' +
-        '<td><a href="' + esc(d.link) + '" target="_blank" rel="noopener">Open</a></td>';
+    const installTd = document.createElement('td');
+    const btn = document.createElement('button');
+    btn.className = 'icon-btn';
+    btn.textContent = 'Copy command';
+    btn.addEventListener('click', () => copyCmd(btn, d.installCommand || d.link));
+    installTd.appendChild(btn);
+    tr.appendChild(installTd);
 
-      const installTd = document.createElement('td');
-      const btn = document.createElement('button');
-      btn.className = 'icon-btn';
-      btn.textContent = 'Copy command';
-      btn.addEventListener('click', () => copyCmd(btn, d.installCommand || d.link));
-      installTd.appendChild(btn);
-      tr.appendChild(installTd);
-
-      rowsEl.appendChild(tr);
-    }
+    rowsEl.appendChild(tr);
   }
 
-  document.getElementById('summary').textContent = filtered.length + ' of ' + DATA.length + ' tools shown';
+  document.getElementById('summary').textContent = filtered.length + ' of ' + DATA.length + ' tools shown, sorted by stars';
+  document.getElementById('pageInfo').textContent = 'Page ' + currentPage + ' of ' + totalPages;
+  document.getElementById('prevPage').disabled = currentPage <= 1;
+  document.getElementById('nextPage').disabled = currentPage >= totalPages;
 }
 
-document.getElementById('q').addEventListener('input', render);
-document.getElementById('typeFilter').addEventListener('change', render);
-document.getElementById('apiFilter').addEventListener('change', render);
+document.getElementById('q').addEventListener('input', () => { currentPage = 1; render(); });
+document.getElementById('typeFilter').addEventListener('change', () => { currentPage = 1; render(); });
+document.getElementById('apiFilter').addEventListener('change', () => { currentPage = 1; render(); });
+document.getElementById('prevPage').addEventListener('click', () => { currentPage -= 1; render(); });
+document.getElementById('nextPage').addEventListener('click', () => { currentPage += 1; render(); });
 render();
 </script>
 </body>
