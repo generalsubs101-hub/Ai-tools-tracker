@@ -320,5 +320,47 @@
     "dateAdded": "2026-07-06",
     "source": "github-search",
     "installed": false
+  },
+  {
+    "name": "baoyu-design",
+    "description": "Portable Agent Skill that packages Claude Design (the engine behind claude.ai/design) so any local agent can produce polished UI mockups, prototypes, wireframes, and slide decks as self-contained HTML.",
+    "howToUse": "Clone the repo into your agent's skills folder (e.g. ~/.claude/skills/baoyu-design) and invoke it from Claude Code, Cursor, or Codex.",
+    "needsApi": "No API",
+    "apiNote": "runs on the agent already on your machine; no separate subscription or upload step",
+    "nature": "Skill",
+    "stars": 2452,
+    "link": "https://github.com/JimLiu/baoyu-design",
+    "installCommand": "git clone https://github.com/JimLiu/baoyu-design.git ~/.claude/skills/baoyu-design",
+    "dateAdded": "2026-07-07",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "Pixel2Motion",
+    "description": "Open-source Claude/Codex skill that turns a raster logo into a clean SVG and then an animated logo with HTML motion demos and GIF/video previews.",
+    "howToUse": "Clone into your agent's skills folder (~/.claude/skills/pixel2motion) and ask the agent to animate a logo file.",
+    "needsApi": "No API",
+    "apiNote": "runs locally; no external API key required for the open-source skill",
+    "nature": "Skill",
+    "stars": 1395,
+    "link": "https://github.com/nolangz/pixel2motion",
+    "installCommand": "git clone https://github.com/nolangz/pixel2motion.git ~/.claude/skills/pixel2motion",
+    "dateAdded": "2026-07-07",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "launch-your-agent",
+    "description": "Official Anthropic Claude Code skill that interviews a founder about what they want to build, scopes a v0, launches it as a Claude Managed Agent in their own account, and iterates toward a scheduled deployment.",
+    "howToUse": "Clone the repo, run `claude` inside it, then type /launch-your-agent (skills in .claude/skills/ load automatically).",
+    "needsApi": "Needs API",
+    "apiNote": "requires your own Anthropic API key (created during the flow at platform.claude.com), stored locally in .env",
+    "nature": "Skill",
+    "stars": 736,
+    "link": "https://github.com/anthropics/launch-your-agent",
+    "installCommand": "git clone https://github.com/anthropics/launch-your-agent.git && cd launch-your-agent && claude",
+    "dateAdded": "2026-07-07",
+    "source": "github-search",
+    "installed": false
   }
 ]
