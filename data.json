@@ -474,5 +474,61 @@
     "dateAdded": "2026-07-08",
     "source": "github-search",
     "installed": false
+  },
+  {
+    "name": "Rowboat",
+    "description": "Open-source, local-first desktop AI coworker that indexes your work into a knowledge graph and gives you built-in surfaces (email, notes, browser, code mode) to act on it, positioned as an alternative to Claude Desktop.",
+    "howToUse": "Download the Mac/Windows/Linux installer from rowboatlabs.com/downloads or the GitHub releases page, then run it as a desktop app.",
+    "needsApi": "Needs API",
+    "apiNote": "connects to your own LLM provider key(s) to power the agent; app itself is free/open-source",
+    "nature": "Connector",
+    "stars": 15901,
+    "link": "https://github.com/rowboatlabs/rowboat",
+    "installCommand": "Download installer from https://www.rowboatlabs.com/downloads",
+    "dateAdded": "2026-07-10",
+    "source": "hn",
+    "installed": false
+  },
+  {
+    "name": "memsearch",
+    "description": "Cross-platform, cross-agent semantic memory tool that turns AI coding sessions into persistent, searchable Markdown memories (with Milvus as a rebuildable vector index) shared across Claude Code, Codex, OpenCode and more.",
+    "howToUse": "In Claude Code run /plugin marketplace add zilliztech/memsearch then /plugin install memsearch and restart; conversations are captured and recalled automatically afterward.",
+    "needsApi": "No API",
+    "apiNote": "runs locally; memory stored as plain Markdown files with a local Milvus index, no external key required",
+    "nature": "Plugin",
+    "stars": 2223,
+    "link": "https://github.com/zilliztech/memsearch",
+    "installCommand": "/plugin marketplace add zilliztech/memsearch && /plugin install memsearch",
+    "dateAdded": "2026-07-10",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "OpenConnector",
+    "description": "Open-source auth gateway (an alternative to Composio) that connects 1,000+ SaaS providers and 9,400+ prebuilt actions to AI agents through a single inspectable runtime, reachable via SDK, CLI, MCP, or HTTP/OpenAPI.",
+    "howToUse": "Self-host the gateway (npm install && npm run dev) or use the hosted OOMOL runtime, then expose it to any MCP-capable agent host at /mcp.",
+    "needsApi": "Needs API",
+    "apiNote": "you supply OAuth credentials for whichever of the 1,000+ connected SaaS providers you want an agent to use",
+    "nature": "MCP",
+    "stars": 1113,
+    "link": "https://github.com/oomol-lab/open-connector",
+    "installCommand": "git clone https://github.com/oomol-lab/open-connector.git && cd open-connector && npm install && npm run dev",
+    "dateAdded": "2026-07-10",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "mcpsnoop",
+    "description": "\"Wireshark for MCP\" - a transparent proxy that sits in the real data path between your AI client (Cursor, Claude Code, Codex) and an MCP server, showing every actual JSON-RPC tool call live in your terminal for debugging.",
+    "howToUse": "Install via go install github.com/kerlenton/mcpsnoop/cmd/mcpsnoop@latest or brew install kerlenton/mcpsnoop/mcpsnoop, then wrap your MCP server command with it in your client's MCP config.",
+    "needsApi": "No API",
+    "apiNote": "runs fully locally as a proxy binary, no external API key",
+    "nature": "MCP",
+    "stars": 232,
+    "link": "https://github.com/kerlenton/mcpsnoop",
+    "installCommand": "go install github.com/kerlenton/mcpsnoop/cmd/mcpsnoop@latest",
+    "dateAdded": "2026-07-10",
+    "source": "hn",
+    "installed": false
   }
 ]
