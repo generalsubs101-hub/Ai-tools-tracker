@@ -58,7 +58,7 @@
   #q { flex: 1; min-width: 200px; }
   #typeFilter, #apiFilter { width: 140px; }
   #summary { font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; }
-  .table-wrap { border: 0.5px solid var(--border); border-radius: 12px; }
+  .table-wrap { border: 0.5px solid var(--border); border-radius: 12px; overflow-x: auto; }
   table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 13px; }
   col.c-name { width: 12%; }
   col.c-desc { width: 22%; }
@@ -97,14 +97,13 @@
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    padding: 5px 10px;
+    padding: 5px 8px;
     border: 0.5px solid var(--border);
     border-radius: 8px;
     background: var(--surface);
     color: var(--text);
     font-size: 12px;
     cursor: pointer;
-    white-space: nowrap;
   }
   .icon-btn:hover { border-color: var(--text-muted); }
   .icon-btn:active { transform: scale(0.98); }
@@ -231,7 +230,7 @@ function render() {
     const installTd = document.createElement('td');
     const btn = document.createElement('button');
     btn.className = 'icon-btn';
-    btn.textContent = 'Copy command';
+    btn.textContent = 'Copy';
     btn.addEventListener('click', () => copyCmd(btn, d.installCommand || d.link));
     installTd.appendChild(btn);
     tr.appendChild(installTd);
