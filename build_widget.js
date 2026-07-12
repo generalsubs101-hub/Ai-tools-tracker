@@ -25,23 +25,31 @@ const html = `<h2 class="sr-only">AI tools tracker: a filterable, paginated tabl
   </select>
 </div>
 <div id="summary" style="font-size:13px; color:var(--text-secondary); margin-bottom:12px;"></div>
-<div style="overflow-x:auto;">
-<table style="width:100%; border-collapse:collapse; font-size:13px;">
+<table style="width:100%; table-layout:fixed; border-collapse:collapse; font-size:12px;">
+  <colgroup>
+    <col style="width:11%;" />
+    <col style="width:23%;" />
+    <col style="width:21%;" />
+    <col style="width:13%;" />
+    <col style="width:8%;" />
+    <col style="width:8%;" />
+    <col style="width:8%;" />
+    <col style="width:8%;" />
+  </colgroup>
   <thead>
     <tr style="border-bottom:0.5px solid var(--border);">
-      <th style="text-align:left; padding:6px 8px; font-weight:500; color:var(--text-secondary);">Name</th>
-      <th style="text-align:left; padding:6px 8px; font-weight:500; color:var(--text-secondary); min-width:180px;">Description</th>
-      <th style="text-align:left; padding:6px 8px; font-weight:500; color:var(--text-secondary); min-width:180px;">How to use</th>
-      <th style="text-align:left; padding:6px 8px; font-weight:500; color:var(--text-secondary);">API</th>
-      <th style="text-align:left; padding:6px 8px; font-weight:500; color:var(--text-secondary);">Type</th>
-      <th style="text-align:left; padding:6px 8px; font-weight:500; color:var(--text-secondary);">Stars</th>
-      <th style="text-align:center; padding:6px 8px; font-weight:500; color:var(--text-secondary);">Link</th>
-      <th style="text-align:center; padding:6px 8px; font-weight:500; color:var(--text-secondary);">Install</th>
+      <th style="text-align:left; padding:6px; font-weight:500; color:var(--text-secondary);">Name</th>
+      <th style="text-align:left; padding:6px; font-weight:500; color:var(--text-secondary);">Description</th>
+      <th style="text-align:left; padding:6px; font-weight:500; color:var(--text-secondary);">How to use</th>
+      <th style="text-align:left; padding:6px; font-weight:500; color:var(--text-secondary);">API</th>
+      <th style="text-align:left; padding:6px; font-weight:500; color:var(--text-secondary);">Type</th>
+      <th style="text-align:left; padding:6px; font-weight:500; color:var(--text-secondary);">Stars</th>
+      <th style="text-align:center; padding:6px; font-weight:500; color:var(--text-secondary);">Link</th>
+      <th style="text-align:center; padding:6px; font-weight:500; color:var(--text-secondary);">Install</th>
     </tr>
   </thead>
   <tbody id="rows"></tbody>
 </table>
-</div>
 <div style="display:flex; align-items:center; gap:12px; margin-top:12px; justify-content:center;">
   <button id="prevPage" style="padding:4px 10px;">Prev</button>
   <span id="pageInfo" style="font-size:12px; color:var(--text-secondary);"></span>
@@ -89,32 +97,35 @@ function render() {
   for (const d of pageItems) {
     const tr = document.createElement('tr');
     tr.style.borderBottom = '0.5px solid var(--border)';
+    const wrap = 'padding:6px; vertical-align:top; overflow-wrap:break-word; word-break:break-word;';
     tr.innerHTML =
-      '<td style="padding:8px; font-weight:500; vertical-align:top;">' + esc(d.name) + '</td>' +
-      '<td style="padding:8px; color:var(--text-secondary); vertical-align:top;">' + esc(d.description) + '</td>' +
-      '<td style="padding:8px; color:var(--text-secondary); vertical-align:top;">' + esc(d.howToUse) + '</td>' +
-      '<td style="padding:8px; vertical-align:top;"><span style="color:' + apiColor(d.needsApi) + '; font-weight:500;">' + esc(d.needsApi) + '</span><br/><span style="font-size:11px; color:var(--text-muted);">' + esc(d.apiNote || '') + '</span></td>' +
-      '<td style="padding:8px; vertical-align:top;">' + esc(d.nature) + '</td>' +
-      '<td style="padding:8px; vertical-align:top;">' + fmtStars(d.stars) + ' <i class="ti ti-star" style="font-size:12px;" aria-hidden="true"></i></td>';
+      '<td style="' + wrap + ' font-weight:500;">' + esc(d.name) + '</td>' +
+      '<td style="' + wrap + ' color:var(--text-secondary);">' + esc(d.description) + '</td>' +
+      '<td style="' + wrap + ' color:var(--text-secondary);">' + esc(d.howToUse) + '</td>' +
+      '<td style="' + wrap + '"><span style="color:' + apiColor(d.needsApi) + '; font-weight:500;">' + esc(d.needsApi) + '</span><br/><span style="font-size:11px; color:var(--text-muted);">' + esc(d.apiNote || '') + '</span></td>' +
+      '<td style="' + wrap + '">' + esc(d.nature) + '</td>' +
+      '<td style="' + wrap + '">' + fmtStars(d.stars) + ' <i class="ti ti-star" style="font-size:12px;" aria-hidden="true"></i></td>';
 
     const linkTd = document.createElement('td');
-    linkTd.style.padding = '8px';
+    linkTd.style.padding = '6px';
     linkTd.style.textAlign = 'center';
     linkTd.style.verticalAlign = 'top';
     const linkBtn = document.createElement('button');
     linkBtn.setAttribute('aria-label', 'Open link');
-    linkBtn.style.padding = '4px 8px';
+    linkBtn.style.padding = '4px 6px';
     linkBtn.innerHTML = '<i class="ti ti-external-link" style="font-size:16px;" aria-hidden="true"></i>';
     linkBtn.addEventListener('click', () => openLink(d.link));
     linkTd.appendChild(linkBtn);
     tr.appendChild(linkTd);
 
     const installTd = document.createElement('td');
-    installTd.style.padding = '8px';
+    installTd.style.padding = '6px';
     installTd.style.textAlign = 'center';
     installTd.style.verticalAlign = 'top';
     const installBtn = document.createElement('button');
-    installBtn.innerHTML = '<i class="ti ti-download" style="font-size:14px; margin-right:4px;" aria-hidden="true"></i>Install ↗';
+    installBtn.setAttribute('aria-label', 'Install ' + d.name);
+    installBtn.style.padding = '4px 6px';
+    installBtn.innerHTML = '<i class="ti ti-download" style="font-size:14px;" aria-hidden="true"></i>';
     installBtn.addEventListener('click', () => sendPrompt('Install ' + d.name + ' for me: ' + (d.installCommand || d.link)));
     installTd.appendChild(installBtn);
     tr.appendChild(installTd);

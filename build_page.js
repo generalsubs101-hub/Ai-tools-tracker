@@ -65,8 +65,16 @@ const html = `<!DOCTYPE html>
   #q { flex: 1; min-width: 200px; }
   #typeFilter, #apiFilter { width: 140px; }
   #summary { font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; }
-  .table-wrap { overflow-x: auto; border: 0.5px solid var(--border); border-radius: 12px; }
-  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .table-wrap { border: 0.5px solid var(--border); border-radius: 12px; }
+  table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 13px; }
+  col.c-name { width: 12%; }
+  col.c-desc { width: 22%; }
+  col.c-howto { width: 22%; }
+  col.c-api { width: 13%; }
+  col.c-type { width: 8%; }
+  col.c-stars { width: 8%; }
+  col.c-link { width: 7%; }
+  col.c-install { width: 8%; }
   th {
     text-align: left;
     padding: 10px 12px;
@@ -74,9 +82,8 @@ const html = `<!DOCTYPE html>
     color: var(--text-secondary);
     border-bottom: 0.5px solid var(--border);
     background: var(--surface);
-    white-space: nowrap;
   }
-  td { padding: 10px 12px; vertical-align: top; border-bottom: 0.5px solid var(--border); }
+  td { padding: 10px 12px; vertical-align: top; border-bottom: 0.5px solid var(--border); overflow-wrap: break-word; word-break: break-word; }
   tr:last-child td { border-bottom: none; }
   .group-row td {
     padding: 10px 12px 4px;
@@ -86,7 +93,7 @@ const html = `<!DOCTYPE html>
     background: transparent;
   }
   .name { font-weight: 500; }
-  .desc, .howto { color: var(--text-secondary); min-width: 200px; }
+  .desc, .howto { color: var(--text-secondary); }
   .api-good { color: var(--success); font-weight: 500; }
   .api-warn { color: var(--warning); font-weight: 500; }
   .note { font-size: 11px; color: var(--text-muted); display: block; margin-top: 2px; }
@@ -147,6 +154,10 @@ const html = `<!DOCTYPE html>
   <div id="summary"></div>
   <div class="table-wrap">
     <table>
+      <colgroup>
+        <col class="c-name" /><col class="c-desc" /><col class="c-howto" /><col class="c-api" />
+        <col class="c-type" /><col class="c-stars" /><col class="c-link" /><col class="c-install" />
+      </colgroup>
       <thead>
         <tr>
           <th>Name</th>
