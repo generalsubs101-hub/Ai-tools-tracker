@@ -1286,5 +1286,61 @@
     "dateAdded": "2026-07-18",
     "source": "github-search",
     "installed": false
+  },
+  {
+    "name": "Skill Seekers",
+    "description": "Converts documentation websites, GitHub repos, and PDFs into ready-to-use Claude AI skills, complete with MCP tool integration.",
+    "howToUse": "Install from PyPI (pip install skill-seekers) then run its CLI to point at a docs site or repo and generate a Claude skill package.",
+    "needsApi": "No API",
+    "apiNote": "works without a key; optional API keys only needed for some source connectors",
+    "nature": "Skill",
+    "stars": 14493,
+    "link": "https://github.com/yusufkaraaslan/Skill_Seekers",
+    "installCommand": "pip install skill-seekers",
+    "dateAdded": "2026-07-19",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "xiaohongshu-mcp",
+    "description": "MCP server that gives AI assistants direct access to Xiaohongshu (RedNote) data and posting actions.",
+    "howToUse": "Run via Docker (docker pull xpzouying/xiaohongshu-mcp) or install the browser-plugin variant x-mcp, then add it as an MCP server.",
+    "needsApi": "No API",
+    "apiNote": "no API key required; authenticates via a logged-in Xiaohongshu session",
+    "nature": "MCP",
+    "stars": 14733,
+    "link": "https://github.com/xpzouying/xiaohongshu-mcp",
+    "installCommand": "docker pull xpzouying/xiaohongshu-mcp",
+    "dateAdded": "2026-07-19",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "CC Safety Net",
+    "description": "A PreToolUse hook that intercepts and blocks destructive git and filesystem commands before AI coding agents can run them.",
+    "howToUse": "Install as a Claude Code plugin (/plugin marketplace add kenryu42/cc-marketplace then /plugin install safety-net@cc-marketplace).",
+    "needsApi": "No API",
+    "apiNote": "works without a key; purely local command interception",
+    "nature": "Plugin",
+    "stars": 1449,
+    "link": "https://github.com/kenryu42/cc-safety-net",
+    "installCommand": "/plugin marketplace add kenryu42/cc-marketplace && /plugin install safety-net@cc-marketplace",
+    "dateAdded": "2026-07-19",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "Internet Court Skill",
+    "description": "A catch-all Claude Code skill/plugin giving agents a trust layer for agent-to-agent commerce: mandates, delegated payments, escrow, and dispute resolution.",
+    "howToUse": "Install as a Claude Code plugin (/plugin marketplace add internet-court/internet-court-skill then /plugin install internet-court@internet-court).",
+    "needsApi": "Needs API",
+    "apiNote": "some vendored sub-skills need provider credentials (e.g. OKX, ChainGPT, Chainbase API keys)",
+    "nature": "Skill",
+    "stars": 1038,
+    "link": "https://github.com/internet-court/internet-court-skill",
+    "installCommand": "/plugin marketplace add internet-court/internet-court-skill && /plugin install internet-court@internet-court",
+    "dateAdded": "2026-07-19",
+    "source": "github-search",
+    "installed": false
   }
 ]
