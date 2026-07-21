@@ -1412,5 +1412,61 @@
     "dateAdded": "2026-07-20",
     "source": "github-search",
     "installed": false
+  },
+  {
+    "name": "i-have-adhd",
+    "description": "A coding-agent skill/output-style that forces direct, action-first answers instead of preamble and hedging.",
+    "howToUse": "Add the marketplace and install as a Claude Code plugin, then invoke with /i-have-adhd.",
+    "needsApi": "No API",
+    "apiNote": "Works fully offline, no keys needed — it's a prompt/output-style skill.",
+    "nature": "Plugin",
+    "stars": 5583,
+    "link": "https://github.com/ayghri/i-have-adhd",
+    "installCommand": "claude plugin marketplace add ayghri/i-have-adhd && claude plugin install i-have-adhd@i-have-adhd",
+    "dateAdded": "2026-07-21",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "opencodex",
+    "description": "Universal local proxy that lets OpenAI Codex and Claude Code run on any LLM provider (Gemini, Grok, DeepSeek, Ollama, etc).",
+    "howToUse": "Install globally via npm and start the local proxy, then point Codex/Claude Code at it.",
+    "needsApi": "Needs API",
+    "apiNote": "Needs API keys/credentials for whichever provider you route to (or a ChatGPT/Codex account pool).",
+    "nature": "Connector",
+    "stars": 1302,
+    "link": "https://github.com/lidge-jun/opencodex",
+    "installCommand": "npm install -g @bitkyc08/opencodex && ocx start",
+    "dateAdded": "2026-07-21",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "img2threejs",
+    "description": "Claude Code/Codex skill that reconstructs a reference image as a code-only, animation-ready Three.js model instead of a mesh file.",
+    "howToUse": "Clone the repo into your agent's skills directory (e.g. ~/.claude/skills/) and invoke it on a reference image.",
+    "needsApi": "No API",
+    "apiNote": "Pure Python 3.10+ stdlib tooling, no keys or extra packages needed.",
+    "nature": "Skill",
+    "stars": 1154,
+    "link": "https://github.com/hoainho/img2threejs",
+    "installCommand": "git clone https://github.com/hoainho/img2threejs.git ~/.claude/skills/img2threejs",
+    "dateAdded": "2026-07-21",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "self-learning-skills",
+    "description": "A meta-skill that recognizes hard-won debugging/workflow discoveries and harvests them into a reusable skill for next session.",
+    "howToUse": "Install as a Claude Code plugin or via the community skills CLI to auto-detect your agent.",
+    "needsApi": "No API",
+    "apiNote": "Purely local file-based skill capture, no keys needed.",
+    "nature": "Skill",
+    "stars": 900,
+    "link": "https://github.com/Kulaxyz/self-learning-skills",
+    "installCommand": "npx skills add kulaxyz/self-learning-skills",
+    "dateAdded": "2026-07-21",
+    "source": "github-search",
+    "installed": false
   }
 ]
