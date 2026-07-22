@@ -1468,5 +1468,61 @@
     "dateAdded": "2026-07-21",
     "source": "github-search",
     "installed": false
+  },
+  {
+    "name": "code-review-graph",
+    "description": "Local-first Tree-sitter code intelligence graph exposed over MCP so AI coding tools read only the relevant slice of a codebase instead of re-scanning it, cutting review-task tokens by up to 528x in its own benchmarks.",
+    "howToUse": "pip install code-review-graph (or pipx), then run `code-review-graph install` to auto-detect and configure Claude Code, Codex, Cursor, and other supported platforms.",
+    "needsApi": "No API",
+    "apiNote": "runs fully locally, no external key required",
+    "nature": "MCP",
+    "stars": 24793,
+    "link": "https://github.com/tirth8205/code-review-graph",
+    "installCommand": "pip install code-review-graph && code-review-graph install",
+    "dateAdded": "2026-07-22",
+    "source": "github-trending",
+    "installed": false
+  },
+  {
+    "name": "jcode",
+    "description": "Rust-built terminal coding agent harness (TUI) positioned as a next-generation alternative to Claude Code/Codex, focused on multi-session workflows and deep customizability.",
+    "howToUse": "Install the standalone binary with the official install script, then run `jcode` in a project directory to start an agent session.",
+    "needsApi": "Needs API",
+    "apiNote": "brings your own model provider key (Anthropic/OpenAI/etc.) since it's a standalone agent harness",
+    "nature": "Connector",
+    "stars": 10461,
+    "link": "https://github.com/1jehuang/jcode",
+    "installCommand": "curl -fsSL https://jcode.sh/install | bash",
+    "dateAdded": "2026-07-22",
+    "source": "github-trending",
+    "installed": false
+  },
+  {
+    "name": "TradingView MCP Bridge",
+    "description": "MCP server that connects Claude Code to a locally running TradingView Desktop app via Chrome DevTools Protocol for AI-assisted chart analysis, Pine Script development, and chart automation.",
+    "howToUse": "Clone the repo, run npm install, add it to your Claude Code MCP config (~/.claude/.mcp.json), then launch TradingView Desktop with its debug port enabled.",
+    "needsApi": "Needs API",
+    "apiNote": "requires a paid TradingView Desktop subscription; no separate API key, runs entirely against your local TradingView instance",
+    "nature": "MCP",
+    "stars": 4928,
+    "link": "https://github.com/tradesdontlie/tradingview-mcp",
+    "installCommand": "git clone https://github.com/tradesdontlie/tradingview-mcp.git && cd tradingview-mcp && npm install",
+    "dateAdded": "2026-07-22",
+    "source": "github-trending",
+    "installed": false
+  },
+  {
+    "name": "Recall",
+    "description": "Fully-local Claude Code memory plugin that logs every session and condenses it into a resume-ready context.md summary using a classical local summarizer, with no API key or external model call.",
+    "howToUse": "Run /plugin marketplace add raiyanyahya/recall then /plugin install recall@recall inside Claude Code.",
+    "needsApi": "No API",
+    "apiNote": "summarization is done locally with a stdlib/numpy summarizer; nothing is sent to any API",
+    "nature": "Plugin",
+    "stars": 721,
+    "link": "https://github.com/raiyanyahya/recall",
+    "installCommand": "/plugin marketplace add raiyanyahya/recall && /plugin install recall@recall",
+    "dateAdded": "2026-07-22",
+    "source": "github-search",
+    "installed": false
   }
 ]
