@@ -1692,5 +1692,61 @@
     "dateAdded": "2026-07-28",
     "source": "github-search",
     "installed": false
+  },
+  {
+    "name": "FastAPI-MCP",
+    "description": "Exposes any FastAPI application's endpoints as Model Context Protocol tools automatically, with built-in auth support.",
+    "howToUse": "Install with pip and mount it onto an existing FastAPI app in a few lines of Python.",
+    "needsApi": "No API",
+    "apiNote": "Works without a key; auth is only needed if you enable it for your own endpoints",
+    "nature": "MCP",
+    "stars": 11966,
+    "link": "https://github.com/tadata-org/fastapi_mcp",
+    "installCommand": "pip install fastapi-mcp",
+    "dateAdded": "2026-07-30",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "IDA Pro MCP",
+    "description": "MCP server that bridges IDA Pro with LLM coding agents for AI-assisted reverse engineering (\"vibe reversing\").",
+    "howToUse": "Install the Claude Code plugin marketplace or pip-install the package, then connect it as an MCP server pointed at a running IDA Pro instance.",
+    "needsApi": "Needs API",
+    "apiNote": "Requires a licensed IDA Pro 8.3+ install (IDA Free not supported); no separate cloud API key needed",
+    "nature": "MCP",
+    "stars": 10912,
+    "link": "https://github.com/mrexodia/ida-pro-mcp",
+    "installCommand": "claude plugin marketplace add mrexodia/claude-marketplace",
+    "dateAdded": "2026-07-30",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "HexStrike AI MCP Agents",
+    "description": "MCP server that gives AI agents autonomous access to 150+ cybersecurity tools for authorized penetration testing and bug-bounty automation.",
+    "howToUse": "Clone the repo, set up a Python virtualenv, install dependencies, then run the MCP server and connect it from Claude or another MCP client.",
+    "needsApi": "No API",
+    "apiNote": "Works without a key; relies on locally installed security tools it orchestrates",
+    "nature": "MCP",
+    "stars": 10608,
+    "link": "https://github.com/0x4m4/hexstrike-ai",
+    "installCommand": "git clone https://github.com/0x4m4/hexstrike-ai.git && cd hexstrike-ai && pip install -r requirements.txt",
+    "dateAdded": "2026-07-30",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "AWS Labs MCP",
+    "description": "Official open-source collection of specialized MCP servers for interacting with AWS services (docs, IaC, Lambda, EKS, ECS, and more).",
+    "howToUse": "Run any individual server on demand with uvx, or wire the core server into your MCP client config.",
+    "needsApi": "Needs API",
+    "apiNote": "Requires AWS credentials/profile configured for the AWS account being accessed",
+    "nature": "MCP",
+    "stars": 9516,
+    "link": "https://github.com/awslabs/mcp",
+    "installCommand": "uvx awslabs.core-mcp-server@latest",
+    "dateAdded": "2026-07-30",
+    "source": "github-search",
+    "installed": false
   }
 ]
