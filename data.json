@@ -1888,5 +1888,33 @@
     "dateAdded": "2026-08-04",
     "source": "github-search",
     "installed": false
+  },
+  {
+    "name": "LoopX",
+    "description": "Local, agent-agnostic control plane that keeps objectives, gates, todos, evidence, and quota stable across long-running loops for Claude Code, Codex, or Cursor.",
+    "howToUse": "Run curl -fsSL https://raw.githubusercontent.com/huangruiteng/loopx/main/scripts/install-from-github.sh | bash, then cd into your project and run loopx connect.",
+    "needsApi": "No API",
+    "apiNote": "local-first, Python 3.11+ standard library only, no external key required",
+    "nature": "Plugin",
+    "stars": 2460,
+    "link": "https://github.com/huangruiteng/loopx",
+    "installCommand": "curl -fsSL https://raw.githubusercontent.com/huangruiteng/loopx/main/scripts/install-from-github.sh | bash",
+    "dateAdded": "2026-08-06",
+    "source": "hn",
+    "installed": false
+  },
+  {
+    "name": "Cloudflare Computer",
+    "description": "Official Cloudflare preview: a persistent SQLite-backed virtual filesystem inside a Durable Object with pluggable command/code execution, giving agents a portable sandboxed working directory.",
+    "howToUse": "In a Cloudflare Workers project run npm install @cloudflare/computer, then use workspace.fs and workspace.runtime.exec() to give an agent a filesystem and execution backend.",
+    "needsApi": "No API",
+    "apiNote": "runs on your own Cloudflare Workers/Durable Objects account; preview API, not yet production-ready",
+    "nature": "Connector",
+    "stars": 3935,
+    "link": "https://github.com/cloudflare/computer",
+    "installCommand": "npm install @cloudflare/computer",
+    "dateAdded": "2026-08-06",
+    "source": "github-trending",
+    "installed": false
   }
 ]
