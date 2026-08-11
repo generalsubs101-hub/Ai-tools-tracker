@@ -2000,5 +2000,33 @@
     "dateAdded": "2026-08-07",
     "source": "hn",
     "installed": false
+  },
+  {
+    "name": "Code-Graph-RAG",
+    "description": "Parses multi-language codebases with Tree-sitter into a Memgraph knowledge graph so agents can query and edit code using natural language.",
+    "howToUse": "Install via uv (uv tool install \"code-graph-rag[treesitter-full,semantic]\") and run it as an MCP server for Claude Code or other MCP clients.",
+    "needsApi": "Needs API",
+    "apiNote": "needs an LLM provider key (OpenAI/Gemini/local) for its natural-language-to-Cypher query generation",
+    "nature": "MCP",
+    "stars": 3525,
+    "link": "https://github.com/vitali87/code-graph-rag",
+    "installCommand": "uv tool install \"code-graph-rag[treesitter-full,semantic]\"",
+    "dateAdded": "2026-08-11",
+    "source": "github-trending",
+    "installed": false
+  },
+  {
+    "name": "Semantica",
+    "description": "Graph-native infrastructure that turns fragmented data into auditable, queryable knowledge graphs with decision intelligence and compliance provenance.",
+    "howToUse": "Install with pip install semantica, then use its native Claude Code/MCP plugin bundle or REST API to query the knowledge graph from an agent.",
+    "needsApi": "No API",
+    "apiNote": "self-hostable and runs locally with no key required; optional external backends (Neo4j, Qdrant, Pinecone) need their own credentials",
+    "nature": "MCP",
+    "stars": 4085,
+    "link": "https://github.com/semantica-agi/semantica",
+    "installCommand": "pip install semantica",
+    "dateAdded": "2026-08-11",
+    "source": "github-trending",
+    "installed": false
   }
 ]
