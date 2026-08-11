@@ -2028,5 +2028,47 @@
     "dateAdded": "2026-08-11",
     "source": "github-trending",
     "installed": false
+  },
+  {
+    "name": "The Agency (agency-agents)",
+    "description": "A library of 230+ specialized AI agent personas (Engineering, Design, Marketing, Security, and more) that plug into Claude Code and a dozen other AI coding tools.",
+    "howToUse": "Run ./scripts/install.sh --tool claude-code from a clone of the repo, or brew install --cask msitarzewski/agency-agents/agency-agents for the desktop app, then invoke an agent by name in conversation.",
+    "needsApi": "No API",
+    "apiNote": "agents are prompt templates, no external API dependency; uses whatever LLM host you already have",
+    "nature": "Plugin",
+    "stars": 142119,
+    "link": "https://github.com/msitarzewski/agency-agents",
+    "installCommand": "./scripts/install.sh --tool claude-code",
+    "dateAdded": "2026-08-11",
+    "source": "github-trending",
+    "installed": false
+  },
+  {
+    "name": "Paperclip",
+    "description": "Open-source Node.js/React orchestration platform that manages teams of AI agents (including Claude-based ones) against business goals, budgets, and org-chart-style governance.",
+    "howToUse": "Install with curl -fsSL https://paperclip.ing/install.sh | bash, then run the interactive onboarding to connect your agents.",
+    "needsApi": "Needs API",
+    "apiNote": "requires API keys/credentials for whichever agent backends you connect (e.g. Claude, OpenAI)",
+    "nature": "Connector",
+    "stars": 76797,
+    "link": "https://github.com/paperclipai/paperclip",
+    "installCommand": "curl -fsSL https://paperclip.ing/install.sh | bash",
+    "dateAdded": "2026-08-11",
+    "source": "github-trending",
+    "installed": false
+  },
+  {
+    "name": "Prime Agent",
+    "description": "Open-source coding and research agent built on a Recursive Language Model architecture with a persistent Python REPL and a refinable long-term memory harness for long-running autonomous tasks.",
+    "howToUse": "Install via curl -fsSL https://app.primeintellect.ai/prime-agent/install.sh | sh, then run prime-agent in your project and complete /login.",
+    "needsApi": "Needs API",
+    "apiNote": "requires login with a subscription or API-key provider on first launch",
+    "nature": "Connector",
+    "stars": 13456,
+    "link": "https://github.com/PrimeIntellect-ai/prime-agent",
+    "installCommand": "curl -fsSL https://app.primeintellect.ai/prime-agent/install.sh | sh",
+    "dateAdded": "2026-08-11",
+    "source": "github-trending",
+    "installed": false
   }
 ]
