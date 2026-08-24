@@ -2588,5 +2588,47 @@
     "dateAdded": "2026-08-24",
     "source": "hn",
     "installed": false
+  },
+  {
+    "name": "Claude Plugins Community",
+    "description": "Anthropic's read-only mirror of the community plugin marketplace for Claude Cowork and Claude Code, listing plugins that passed automated security review.",
+    "howToUse": "Add the marketplace then install a plugin from it via the Claude Code CLI.",
+    "needsApi": "No API",
+    "apiNote": "Works without a key; just needs a Claude Code install",
+    "nature": "Plugin",
+    "stars": 1103,
+    "link": "https://github.com/anthropics/claude-plugins-community",
+    "installCommand": "claude plugin marketplace add anthropics/claude-plugins-community && claude plugin install <plugin-name>@claude-community",
+    "dateAdded": "2026-08-24",
+    "source": "github-trending",
+    "installed": false
+  },
+  {
+    "name": "Awesome Agent Skills (VoltAgent)",
+    "description": "A curated, actively maintained directory of 1,500+ hand-picked Agent Skills from official teams (Anthropic, Google Labs, Vercel, Stripe, Cloudflare, and more) and the community.",
+    "howToUse": "Browse the repo's table for a skill, then copy its path into your project's skills directory (compatible with Claude Code, Codex, Gemini CLI, Cursor, and more).",
+    "needsApi": "No API",
+    "apiNote": "Static directory of skill files, no key required",
+    "nature": "Skill",
+    "stars": 31475,
+    "link": "https://github.com/VoltAgent/awesome-agent-skills",
+    "installCommand": "git clone https://github.com/VoltAgent/awesome-agent-skills && cp -r awesome-agent-skills/<skill-path> .claude/skills/",
+    "dateAdded": "2026-08-24",
+    "source": "github-trending",
+    "installed": false
+  },
+  {
+    "name": "OpenHuman",
+    "description": "Open-source, local-first personal AI agent harness with persistent memory, multi-agent orchestration, and 5,000+ MCP server / 90,000+ skill integrations, including a Claude Code-compatible memory backend.",
+    "howToUse": "Install the desktop app via Homebrew/apt/MSI installer, then optionally point its memory backend at agentmemory to share context with Claude Code.",
+    "needsApi": "Needs API",
+    "apiNote": "Bundled subscription for hosted models/search by default, or bring your own provider key / local Ollama",
+    "nature": "Connector",
+    "stars": 36908,
+    "link": "https://github.com/tinyhumansai/openhuman",
+    "installCommand": "brew install --cask openhuman",
+    "dateAdded": "2026-08-24",
+    "source": "github-trending",
+    "installed": false
   }
 ]
