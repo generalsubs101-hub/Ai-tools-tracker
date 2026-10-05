@@ -3288,5 +3288,47 @@
     "dateAdded": "2026-10-04",
     "source": "github-search",
     "installed": false
+  },
+  {
+    "name": "Autoharness",
+    "description": "Self-learning skill layer for Claude Code that distills skills from real sessions, merges duplicates, updates them in use, and prunes unused ones.",
+    "howToUse": "In Claude Code run /plugin marketplace add tigerless-labs/autoharness then /plugin install autoharness@autoharness.",
+    "needsApi": "No API",
+    "apiNote": "runs locally as Python, zero third-party dependencies, no key needed",
+    "nature": "Plugin",
+    "stars": 7850,
+    "link": "https://github.com/tigerless-labs/autoharness",
+    "installCommand": "/plugin marketplace add tigerless-labs/autoharness && /plugin install autoharness@autoharness",
+    "dateAdded": "2026-10-05",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "designlang (design-extract)",
+    "description": "Extracts a complete design system (DTCG tokens, Tailwind config, Figma variables, component anatomy, WCAG audit) from any live website with one command.",
+    "howToUse": "Run npx designlang <url> from any terminal, or add its MCP server for Claude Code/Cursor/Windsurf per the repo docs.",
+    "needsApi": "No API",
+    "apiNote": "works without a key; optional --smart classification uses an OpenAI-compatible API key",
+    "nature": "MCP",
+    "stars": 4169,
+    "link": "https://github.com/Manavarya09/design-extract",
+    "installCommand": "npx designlang https://example.com",
+    "dateAdded": "2026-10-05",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "CLI Agent Orchestrator (CAO)",
+    "description": "Coordinates multiple AI coding CLIs (Claude Code, Codex, Kiro, and more) in isolated tmux sessions so a supervisor can delegate work to specialist agents in parallel or sequence.",
+    "howToUse": "Install with pip/uv (pip install cli-agent-orchestrator), then run cao-server with an authenticated provider CLI already set up.",
+    "needsApi": "No API",
+    "apiNote": "no key of its own; requires at least one provider CLI already authenticated (e.g. Claude Code)",
+    "nature": "Connector",
+    "stars": 1383,
+    "link": "https://github.com/awslabs/cli-agent-orchestrator",
+    "installCommand": "pip install cli-agent-orchestrator",
+    "dateAdded": "2026-10-05",
+    "source": "github-search",
+    "installed": false
   }
 ]
