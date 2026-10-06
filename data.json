@@ -3330,5 +3330,61 @@
     "dateAdded": "2026-10-05",
     "source": "github-search",
     "installed": false
+  },
+  {
+    "name": "LinkedIn Agent Skill",
+    "description": "Eleven free Claude skills that run a LinkedIn account end-to-end: posts off 21 hook formulas, comments, replies, profile scoring, a weekly plan, and a humanizer that strips AI-sounding tells before anything posts.",
+    "howToUse": "Clone the repo and copy the skills folders into ~/.claude/skills/, or install as a plugin via /plugin marketplace add Jakeschincariol/linkedin-agent-skill.",
+    "needsApi": "No API",
+    "apiNote": "works without a key; no signup, nothing to connect",
+    "nature": "Skill",
+    "stars": 1344,
+    "link": "https://github.com/Jakeschincariol/linkedin-agent-skill",
+    "installCommand": "git clone https://github.com/Jakeschincariol/linkedin-agent-skill.git && cp -r linkedin-agent-skill/skills/li-* ~/.claude/skills/",
+    "dateAdded": "2026-10-06",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "Motion Video Kit",
+    "description": "Claude Code skill for making premium, launch-style business commercials with AI-generated footage, code-built HTML/GSAP motion, selective Three.js, and an independent-critic quality loop distilled from 28 reference launch films.",
+    "howToUse": "Clone into your agent skills folder (e.g. ~/.claude/skills/motion-video-kit) and ask Claude Code to build a launch video for a product.",
+    "needsApi": "No API",
+    "apiNote": "runs as local skill content; any image/video generation it calls out to needs its own credentials",
+    "nature": "Skill",
+    "stars": 1035,
+    "link": "https://github.com/echris6/motion-video-kit",
+    "installCommand": "git clone https://github.com/echris6/motion-video-kit.git ~/.claude/skills/motion-video-kit",
+    "dateAdded": "2026-10-06",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "Official MCP Servers (VoltAgent)",
+    "description": "Curated directory of 280+ official MCP servers published by the companies behind the products, deliberately excluding unofficial forks and abandoned projects.",
+    "howToUse": "Browse the directory on GitHub to find a vetted MCP server for a given product, then add it to Claude Code with claude mcp add per that server own install command.",
+    "needsApi": "No API",
+    "apiNote": "the list itself needs no key; each listed MCP server has its own auth requirements",
+    "nature": "Connector",
+    "stars": 109,
+    "link": "https://github.com/VoltAgent/official-mcp-servers",
+    "installCommand": "See each listed server entry for its own claude mcp add command",
+    "dateAdded": "2026-10-06",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "Second Brain OS",
+    "description": "A self-maintaining AI knowledge base: a full guide, starter Obsidian vault, and 18 Claude agent skills that turn everything you read or save into linked wiki pages you can query.",
+    "howToUse": "Clone the repo, follow the guide to set up the starter vault in Obsidian, then copy the agent skills into ~/.claude/skills/.",
+    "needsApi": "No API",
+    "apiNote": "works without a key; needs Obsidian plus a coding agent, nothing else to install",
+    "nature": "Skill",
+    "stars": 962,
+    "link": "https://github.com/undefined-ui/second-brain-os",
+    "installCommand": "git clone https://github.com/undefined-ui/second-brain-os.git",
+    "dateAdded": "2026-10-06",
+    "source": "github-search",
+    "installed": false
   }
 ]
