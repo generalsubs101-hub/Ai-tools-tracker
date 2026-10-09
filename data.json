@@ -3568,5 +3568,61 @@
     "dateAdded": "2026-10-08",
     "source": "github-search",
     "installed": false
+  },
+  {
+    "name": "World Monitor",
+    "description": "Real-time global intelligence dashboard that aggregates AI-powered news, geopolitical and infrastructure monitoring with a public MCP server for agent access.",
+    "howToUse": "Run it with npx worldmonitor tools to list its MCP tools ad-hoc, or add https://worldmonitor.app/mcp as an MCP server in your client; self-host via Ollama for zero API keys.",
+    "needsApi": "No API",
+    "apiNote": "tools/list is public and keyless; tools/call needs an X-WorldMonitor-Key or OAuth for premium data sources",
+    "nature": "MCP",
+    "stars": 88116,
+    "link": "https://github.com/koala73/worldmonitor",
+    "installCommand": "npx worldmonitor tools",
+    "dateAdded": "2026-10-09",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "terminal-browser",
+    "description": "A real, graphical web browser that renders inside your terminal, so a coding agent and a live site can share the same terminal tab.",
+    "howToUse": "Install the CLI (curl -fsSL https://terminal-browser.sh/install | bash), then add the Claude Code plugin and run /browser inside Claude Code.",
+    "needsApi": "No API",
+    "apiNote": "works without a key; fully local/terminal-based",
+    "nature": "Plugin",
+    "stars": 3738,
+    "link": "https://github.com/zenbu-labs/terminal-browser",
+    "installCommand": "claude plugin marketplace add zenbu-labs/terminal-browser && claude plugin install terminal-browser@terminal-browser",
+    "dateAdded": "2026-10-09",
+    "source": "github-trending",
+    "installed": false
+  },
+  {
+    "name": "Anti-Defensive Writing Skill",
+    "description": "Lightweight, zero-dependency Claude skill that rewrites academic paper drafts to stop hedge-heavy defensive writing and argue from strongest results instead.",
+    "howToUse": "Copy the skills/anti-defensive-writing SKILL.md from the repo into your Claude Code skills directory, or install the packaged plugin via claude plugin marketplace add.",
+    "needsApi": "No API",
+    "apiNote": "pure prompt/skill pack, no external services",
+    "nature": "Skill",
+    "stars": 2442,
+    "link": "https://github.com/Adkid-Zephyr/anti-defensive-writing-Skill",
+    "installCommand": "git clone https://github.com/Adkid-Zephyr/anti-defensive-writing-Skill && cp -r anti-defensive-writing-Skill/skills/anti-defensive-writing ~/.claude/skills/",
+    "dateAdded": "2026-10-09",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "ELI5",
+    "description": "Claude Code skill that explains any concept to a chosen audience (kids, managers, engineers, parents), adapting vocabulary, tone, and analogies automatically.",
+    "howToUse": "Clone the repo and copy skills/eli5 into ~/.claude/skills/eli5, then ask Claude to \"ELI5 this\" or \"explain this to my manager.\"",
+    "needsApi": "No API",
+    "apiNote": "pure prompt-based skill, no external services",
+    "nature": "Skill",
+    "stars": 1682,
+    "link": "https://github.com/DreambigOu/ELI5",
+    "installCommand": "git clone https://github.com/DreambigOu/ELI5.git && cp -r ELI5/skills/eli5 ~/.claude/skills/eli5",
+    "dateAdded": "2026-10-09",
+    "source": "github-search",
+    "installed": false
   }
 ]
