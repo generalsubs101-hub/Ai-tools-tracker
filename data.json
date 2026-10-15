@@ -3890,5 +3890,33 @@
     "dateAdded": "2026-10-13",
     "source": "github-search",
     "installed": false
+  },
+  {
+    "name": "zotero-mcp",
+    "description": "MCP server that connects your Zotero research library to Claude, ChatGPT, and other AI assistants for searching, reading, citing, and annotating papers.",
+    "howToUse": "Run uv tool install zotero-mcp-server (or pip install), enable Zotero local API in Settings > Advanced, then add it as an MCP server in Claude Desktop/Code.",
+    "needsApi": "No API",
+    "apiNote": "uses Zotero local API by default, no key needed; optional cloud/semantic-search extras can use your own OpenAI/Gemini key",
+    "nature": "MCP",
+    "stars": 5404,
+    "link": "https://github.com/54yyyu/zotero-mcp",
+    "installCommand": "uv tool install zotero-mcp-server",
+    "dateAdded": "2026-10-15",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "attention-span",
+    "description": "ADHD-friendly output styles for Claude Code, Codex, and other agents that make terse, structured responses easier to follow.",
+    "howToUse": "Install as a Claude Code output style/skill from the repo (npx skills add alexgreensh/attention-span or clone into ~/.claude/skills), then select the style.",
+    "needsApi": "No API",
+    "apiNote": "works without a key; local output-style skill only",
+    "nature": "Skill",
+    "stars": 1451,
+    "link": "https://github.com/alexgreensh/attention-span",
+    "installCommand": "npx skills add alexgreensh/attention-span",
+    "dateAdded": "2026-10-15",
+    "source": "github-search",
+    "installed": false
   }
 ]
