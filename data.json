@@ -4002,5 +4002,61 @@
     "dateAdded": "2026-10-18",
     "source": "github-search",
     "installed": false
+  },
+  {
+    "name": "Next AI Draw.io",
+    "description": "Chat-driven draw.io diagram editor with a web app, desktop app, and MCP server, letting agents draw and revise real draw.io diagrams with versioned, undoable edits.",
+    "howToUse": "Add the MCP server to Claude Code, Cursor, Codex or VS Code following the MCP setup at next-ai-drawio.jiang.jp/en/mcp, or run the desktop/web app directly.",
+    "needsApi": "Needs API",
+    "apiNote": "needs an LLM provider key (OpenAI, Anthropic, etc.) to drive the diagram edits",
+    "nature": "MCP",
+    "stars": 36317,
+    "link": "https://github.com/DayuanJiang/next-ai-draw-io",
+    "installCommand": "npx -y next-ai-draw-io-mcp",
+    "dateAdded": "2026-10-19",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "Lemo-OpusCar",
+    "description": "Claude Code skill with 51 film styles, each a style prompt plus a demo short film made entirely in code by Claude Opus 5.5, no video model required.",
+    "howToUse": "Run claude plugin marketplace add lemomo-ai/lemo-opuscar then claude plugin install lemo-opuscar@lemolab, and ask Claude Code to direct a film in a chosen style.",
+    "needsApi": "No API",
+    "apiNote": "works without a key; tuned specifically for Claude Opus 5.5",
+    "nature": "Skill",
+    "stars": 3141,
+    "link": "https://github.com/lemomo-ai/lemo-opuscar",
+    "installCommand": "claude plugin marketplace add lemomo-ai/lemo-opuscar && claude plugin install lemo-opuscar@lemolab",
+    "dateAdded": "2026-10-19",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "Magpie",
+    "description": "Menu-bar app that lets you run Claude Code, Codex, Gemini CLI, and OpenCode on alternate model backends (Kimi, DeepSeek, GLM, etc.) through one local gateway with automatic quota failover.",
+    "howToUse": "Download the desktop app for macOS, Windows, or Linux from usemagpie.ai, then switch any agent's backing model from the menu bar.",
+    "needsApi": "Needs API",
+    "apiNote": "needs accounts/keys for whichever alternate model providers you route through it",
+    "nature": "Connector",
+    "stars": 16263,
+    "link": "https://github.com/yetone/magpie",
+    "installCommand": "Download installer from https://usemagpie.ai",
+    "dateAdded": "2026-10-19",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "Coucou",
+    "description": "Mac notch (and Windows, Linux, iPhone, Android) companion app that watches your AI coding agent sessions (Claude Code, Codex, Cursor, Gemini CLI) so you can approve permissions and chat without switching windows.",
+    "howToUse": "Clone the repo and run npm install to build locally, or grab a release build from the GitHub releases page.",
+    "needsApi": "No API",
+    "apiNote": "works without a key; connects to whichever coding agent sessions are already running",
+    "nature": "Connector",
+    "stars": 5543,
+    "link": "https://github.com/Louis-CFM/coucou",
+    "installCommand": "git clone https://github.com/Louis-CFM/coucou.git && cd coucou && npm install",
+    "dateAdded": "2026-10-19",
+    "source": "github-search",
+    "installed": false
   }
 ]
