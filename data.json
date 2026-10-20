@@ -4058,5 +4058,47 @@
     "dateAdded": "2026-10-19",
     "source": "github-search",
     "installed": false
+  },
+  {
+    "name": "Xerj",
+    "description": "Local-first Rust search engine and native MCP server that indexes code, docs, logs, and PDFs for BM25/vector/hybrid search so agents stop reading files one by one.",
+    "howToUse": "Run curl -fsSL https://xerj.org/get | sh to install the binary, then xerj init to wire it into Claude Code/Cursor as an MCP server and skill.",
+    "needsApi": "No API",
+    "apiNote": "fully local, single static binary; default lexical embedder is offline, optional neural embedder downloads ~90MB",
+    "nature": "MCP",
+    "stars": 10656,
+    "link": "https://github.com/xerj-org/xerj",
+    "installCommand": "curl -fsSL https://xerj.org/get | sh && xerj init",
+    "dateAdded": "2026-10-20",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "WhatsApp MCP (finereli)",
+    "description": "Self-hosted MCP server on your own Cloudflare account that lets an AI agent search and read your own WhatsApp messages via a linked-device connection.",
+    "howToUse": "Clone the repo, run npm install, create a Cloudflare KV namespace and OWNER_PASSWORD secret, then npm run deploy and add it in Claude Code with claude mcp add --transport http whatsapp https://your-url/mcp.",
+    "needsApi": "Needs API",
+    "apiNote": "needs a Cloudflare account (Workers Paid plan for large history imports) and a one-time WhatsApp QR link; read-only, cannot send messages",
+    "nature": "MCP",
+    "stars": 288,
+    "link": "https://github.com/finereli/whatsapp-mcp",
+    "installCommand": "git clone https://github.com/finereli/whatsapp-mcp && cd whatsapp-mcp && npm install && npm run deploy",
+    "dateAdded": "2026-10-20",
+    "source": "hn",
+    "installed": false
+  },
+  {
+    "name": "AI Employees",
+    "description": "Eight open-source AI Employee kits, each a folder of scheduled routines (60 total) covering a business role like GTM, SEO, sales, or customer support, run by your own coding agent.",
+    "howToUse": "Run npx ai-employees hire gtm-engineer --to <folder> to download a kit, or install the bundled Claude Code plugin with /plugin marketplace add markfulton/ai-employees then /plugin install ai-employees@ai-employees.",
+    "needsApi": "Needs API",
+    "apiNote": "needs an AI agent you are already logged into (e.g. Claude Code) plus a browser signed in to whatever accounts each routine reads",
+    "nature": "Plugin",
+    "stars": 642,
+    "link": "https://github.com/markfulton/ai-employees",
+    "installCommand": "/plugin marketplace add markfulton/ai-employees && /plugin install ai-employees@ai-employees",
+    "dateAdded": "2026-10-20",
+    "source": "github-search",
+    "installed": false
   }
 ]
