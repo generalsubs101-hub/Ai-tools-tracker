@@ -4100,5 +4100,19 @@
     "dateAdded": "2026-10-20",
     "source": "github-search",
     "installed": false
+  },
+  {
+    "name": "Blender AI MCP Addon",
+    "description": "Blender add-on that runs a built-in MCP server plus a visual chat workspace so an AI assistant can inspect scenes, build objects, edit materials, and run multi-step workflows inside Blender.",
+    "howToUse": "Download mcp-for-blender-pro.zip from the Releases page, install it in Blender via Edit > Preferences > Get Extensions > Install from Disk, then open the MCP Pro panel in the 3D Viewport (N key) and pick a provider.",
+    "needsApi": "Needs API",
+    "apiNote": "cloud providers (OpenAI, Claude, Gemini, OpenRouter) need a connection key; local Ollama models work without one",
+    "nature": "MCP",
+    "stars": 944,
+    "link": "https://github.com/LiCinCan/blender-ai-mcp-addon",
+    "installCommand": "Download release ZIP from https://github.com/LiCinCan/blender-ai-mcp-addon/releases, then install in Blender via Edit > Preferences > Get Extensions > Install from Disk",
+    "dateAdded": "2026-10-21",
+    "source": "github-search",
+    "installed": false
   }
 ]
