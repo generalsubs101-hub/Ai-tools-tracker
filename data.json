@@ -4114,5 +4114,47 @@
     "dateAdded": "2026-10-21",
     "source": "github-search",
     "installed": false
+  },
+  {
+    "name": "SkillSpector",
+    "description": "NVIDIA security scanner that detects prompt injection, data exfiltration, and other malicious or vulnerable patterns in Claude Code, Codex, and MCP skills before you install them.",
+    "howToUse": "Clone the repo, create a venv, and run make install (or pip/uv install), then run skillspector scan against a skill repo, URL, zip, or directory.",
+    "needsApi": "No API",
+    "apiNote": "static analysis works fully offline; optional LLM semantic evaluation stage needs a model API key",
+    "nature": "Plugin",
+    "stars": 20878,
+    "link": "https://github.com/NVIDIA/SkillSpector",
+    "installCommand": "git clone https://github.com/NVIDIA/SkillSpector.git && cd SkillSpector && make install",
+    "dateAdded": "2026-10-22",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "Humanizer-zh",
+    "description": "Chinese-language localization of the Humanizer skill that edits AI-written Chinese text to remove clichés, repetition, and templated phrasing while keeping facts and voice.",
+    "howToUse": "Run npx skills add https://github.com/op7418/Humanizer-zh.git, then invoke /humanizer-zh on a block of Chinese text or a file in Claude Code.",
+    "needsApi": "No API",
+    "apiNote": "works without a key; runs as a local Claude Code skill",
+    "nature": "Skill",
+    "stars": 20389,
+    "link": "https://github.com/op7418/Humanizer-zh",
+    "installCommand": "npx skills add https://github.com/op7418/Humanizer-zh.git",
+    "dateAdded": "2026-10-22",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "Simplified Technical English Skill",
+    "description": "Agent skill that makes an LLM write in ASD-STE100 Simplified Technical English using its approved word list, 53 writing rules, and a standalone checker script.",
+    "howToUse": "Clone into ~/.claude/skills/simplified-technical-english, then type /simplified-technical-english or ask Claude to write/check text in STE.",
+    "needsApi": "No API",
+    "apiNote": "works without a key; runs entirely as local skill files plus a local Python check script",
+    "nature": "Skill",
+    "stars": 1008,
+    "link": "https://github.com/0xpili/simplified-technical-english",
+    "installCommand": "git clone https://github.com/0xpili/simplified-technical-english.git ~/.claude/skills/simplified-technical-english",
+    "dateAdded": "2026-10-22",
+    "source": "github-search",
+    "installed": false
   }
 ]
