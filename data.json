@@ -4324,5 +4324,47 @@
     "dateAdded": "2026-10-23",
     "source": "github-trending",
     "installed": false
+  },
+  {
+    "name": "security-audit-skill",
+    "description": "Cloudflare-built coding-agent skill that runs a six-phase, independently-verified security audit of a codebase and produces machine-readable findings.",
+    "howToUse": "Run npx skills add https://github.com/cloudflare/security-audit-skill --skill security-audit, then ask the agent to audit a repo.",
+    "needsApi": "No API",
+    "apiNote": "runs locally through your existing coding agent, no external key required",
+    "nature": "Skill",
+    "stars": 42462,
+    "link": "https://github.com/cloudflare/security-audit-skill",
+    "installCommand": "npx skills add https://github.com/cloudflare/security-audit-skill --skill security-audit",
+    "dateAdded": "2026-10-24",
+    "source": "github-trending",
+    "installed": false
+  },
+  {
+    "name": "claude-red",
+    "description": "Curated library of 78 offensive-security SKILL.md files (SQLi to EDR evasion, ADCS abuse) for authorized red-team engagements, bug bounty triage, and CTF prep with Claude.",
+    "howToUse": "Clone into ~/.claude/skills/claude-red (git clone https://github.com/SnailSploit/claude-red ~/.claude/skills/claude-red); skills auto-load based on conversational triggers.",
+    "needsApi": "No API",
+    "apiNote": "runs locally as Claude skill files, no external key required",
+    "nature": "Skill",
+    "stars": 8607,
+    "link": "https://github.com/SnailSploit/claude-red",
+    "installCommand": "git clone https://github.com/SnailSploit/claude-red ~/.claude/skills/claude-red",
+    "dateAdded": "2026-10-24",
+    "source": "github-trending",
+    "installed": false
+  },
+  {
+    "name": "OpenShell",
+    "description": "NVIDIA's safe, private runtime that sandboxes fleets of autonomous AI agents with kernel-level file/network/syscall policy enforcement and formally-verified policy changes.",
+    "howToUse": "Install the CLI (curl -LsSf https://raw.githubusercontent.com/NVIDIA/OpenShell/main/install.sh | sh), then run openshell sandbox create to spin up a sandboxed agent.",
+    "needsApi": "No API",
+    "apiNote": "self-hosted runtime; agents inside it may need their own LLM provider keys",
+    "nature": "Connector",
+    "stars": 18915,
+    "link": "https://github.com/NVIDIA/OpenShell",
+    "installCommand": "curl -LsSf https://raw.githubusercontent.com/NVIDIA/OpenShell/main/install.sh | sh",
+    "dateAdded": "2026-10-24",
+    "source": "github-trending",
+    "installed": false
   }
 ]
