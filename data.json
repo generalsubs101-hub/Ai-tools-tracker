@@ -4366,5 +4366,19 @@
     "dateAdded": "2026-10-24",
     "source": "github-trending",
     "installed": false
+  },
+  {
+    "name": "Concat",
+    "description": "A free, open-source, local-first CapCut-style video editor with a built-in MCP server so Claude and other AI agents can drive the video editing.",
+    "howToUse": "Download the desktop app (macOS/Windows/Linux/Android), then run `concat --mcp` and follow docs/MCP.md to connect it as an MCP server.",
+    "needsApi": "No API",
+    "apiNote": "runs fully local and offline, no API key needed to edit or to expose the MCP server",
+    "nature": "MCP",
+    "stars": 11353,
+    "link": "https://github.com/jub0t/Concat",
+    "installCommand": "concat --mcp",
+    "dateAdded": "2026-10-25",
+    "source": "github-search",
+    "installed": false
   }
 ]
