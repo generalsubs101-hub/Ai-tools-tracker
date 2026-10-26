@@ -4380,5 +4380,19 @@
     "dateAdded": "2026-10-25",
     "source": "github-search",
     "installed": false
+  },
+  {
+    "name": "DBX",
+    "description": "Lightweight 25MB cross-platform database client for 100+ databases (MySQL, PostgreSQL, MongoDB, Redis, and more) with a built-in AI SQL assistant and a Rust-powered MCP server.",
+    "howToUse": "Install the desktop app (e.g. `brew install --cask dbx`), then add its MCP server to your MCP config with `npx -y @dbx-app/mcp-server` to let Claude Code or Cursor query your databases.",
+    "needsApi": "No API",
+    "apiNote": "No API key required for the MCP server itself; optional AI SQL assistant can use Claude, OpenAI, or local Ollama models with your own key.",
+    "nature": "Connector",
+    "stars": 27769,
+    "link": "https://github.com/t8y2/dbx",
+    "installCommand": "npx -y @dbx-app/mcp-server",
+    "dateAdded": "2026-10-26",
+    "source": "github-search",
+    "installed": false
   }
 ]
