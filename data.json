@@ -4394,5 +4394,61 @@
     "dateAdded": "2026-10-26",
     "source": "github-search",
     "installed": false
+  },
+  {
+    "name": "BeautifulRust",
+    "description": "Agent skills that teach coding agents to write, review, and port idiomatic Rust, with a tested clippy config.",
+    "howToUse": "Add the skill repo to Claude Code (claude plugin marketplace add morganlinton/BeautifulRust) then ask it to write or review Rust code.",
+    "needsApi": "No API",
+    "apiNote": "works without a key",
+    "nature": "Skill",
+    "stars": 1236,
+    "link": "https://github.com/morganlinton/BeautifulRust",
+    "installCommand": "claude plugin marketplace add morganlinton/BeautifulRust && claude plugin install BeautifulRust",
+    "dateAdded": "2026-10-27",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "Elephant Goldfish Model (Google)",
+    "description": "An open-source method and skill set from Google for spec-driven development with LLMs across Claude Code, Gemini, Codex and other coding agents.",
+    "howToUse": "Clone the repo and follow its setup to add the spec-driven-development skills to your coding agent.",
+    "needsApi": "No API",
+    "apiNote": "works without a key",
+    "nature": "Skill",
+    "stars": 1868,
+    "link": "https://github.com/google/elephant-goldfish-model",
+    "installCommand": "git clone https://github.com/google/elephant-goldfish-model",
+    "dateAdded": "2026-10-27",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "AI Security Tool (ZeroDayEvil)",
+    "description": "Free open-source AI-powered security terminal and vulnerability scanner (CVE, SBOM) that drives SSH, SFTP, RDP, VNC and 12+ autonomous AI agents for security workflows.",
+    "howToUse": "Add it as an MCP server or run its CLI/web UI per the repo README to automate pentesting and DevSecOps workflows.",
+    "needsApi": "Needs API",
+    "apiNote": "needs API keys for the LLM backends (DeepSeek, OpenAI, etc.) it drives",
+    "nature": "MCP",
+    "stars": 1173,
+    "link": "https://github.com/ZeroDayEvil/ai-security-tool",
+    "installCommand": "git clone https://github.com/ZeroDayEvil/ai-security-tool",
+    "dateAdded": "2026-10-27",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "McDonald's Saver Strategist",
+    "description": "Skill/MCP server that pulls the McDonald's China menu and all available coupons, then computes the cheapest possible order combination.",
+    "howToUse": "Install as an MCP server/Agent Skill per the repo README (e.g. for WorkBuddy or Claude Code), then ask it to optimize a McDonald's order.",
+    "needsApi": "No API",
+    "apiNote": "works without a key",
+    "nature": "MCP",
+    "stars": 1596,
+    "link": "https://github.com/hujjun/mcd-saver-strategist",
+    "installCommand": "git clone https://github.com/hujjun/mcd-saver-strategist",
+    "dateAdded": "2026-10-27",
+    "source": "github-search",
+    "installed": false
   }
 ]
