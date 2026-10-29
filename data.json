@@ -4618,5 +4618,33 @@
     "dateAdded": "2026-10-29",
     "source": "github-search",
     "installed": false
+  },
+  {
+    "name": "leanrea",
+    "description": "Single 8 KB skill that guides agents through reverse engineering binaries, Electron apps, APKs and Go builds using plain CLI tools instead of an MCP layer.",
+    "howToUse": "Install the skill, then ask Claude Code to inspect or reverse engineer a target and it picks the fastest raw command (asar, otool, jadx, Ghidra, etc.).",
+    "needsApi": "No API",
+    "apiNote": "works without a key; needs the RE CLI tools installed locally",
+    "nature": "Skill",
+    "stars": 3510,
+    "link": "https://github.com/aicodeking/leanrea",
+    "installCommand": "npx skills add aicodeking/leanrea -a claude-code -y",
+    "dateAdded": "2026-10-29",
+    "source": "github-search",
+    "installed": false
+  },
+  {
+    "name": "SolidCraft",
+    "description": "Open-source parametric 3D CAD app in Rust with a built-in MCP server so AI agents can sketch, constrain and build solids.",
+    "howToUse": "Install SolidCraft (desktop/CLI), then add solidcraft-cli mcp as an MCP server and ask Claude to model parts.",
+    "needsApi": "No API",
+    "apiNote": "works without a key; requires solidcraft-cli on PATH",
+    "nature": "MCP",
+    "stars": 11788,
+    "link": "https://github.com/tangency-labs/solidcraft",
+    "installCommand": "claude mcp add solidcraft -- solidcraft-cli mcp",
+    "dateAdded": "2026-10-29",
+    "source": "github-search",
+    "installed": false
   }
 ]
